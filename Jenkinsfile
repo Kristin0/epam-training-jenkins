@@ -30,7 +30,6 @@ pipeline {
         }
             steps {
                 sh 'terraform apply --auto-approve'
-                sh 'ls -la'
                 
             }
             
@@ -38,7 +37,6 @@ pipeline {
         
         stage('Ansible') {
             steps {
-                sh 'ls -la'
                 sh 'sudo amazon-linux-extras install ansible2 -y'
                 sh 'cd ansible/ && ansible-playbook wordpress.yml -i inventory'
                 
